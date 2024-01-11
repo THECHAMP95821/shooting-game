@@ -5,7 +5,8 @@ const killEnemySound = new Audio("./music/killEnemy.mp3");
 const gameOverSound = new Audio("./music/gameOver.mp3");
 const heavyWeaponSound = new Audio("./music/heavyWeapon.mp3");
 const hugeWeaponSound = new Audio("./music/hugeWeapon.mp3");
-introMusic.play(); 
+
+introMusic.play();
 
 
 //BASIC ENV SETUP
@@ -310,6 +311,11 @@ function animation(){
             cancelAnimationFrame(animationID);
             //console.log("GAME OVER");
             gameOverSound.play();
+            hugeWeaponSound.pause();
+            shootingSound.pause();
+            heavyWeaponSound.pause();
+            killEnemySound.pause();
+            introMusic.play();
             return gameOverLoader();;
         }
         weapons.forEach((weapon,weaponIndex)=>{
